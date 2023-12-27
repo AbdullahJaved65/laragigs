@@ -15,7 +15,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('listings', [
+        'heading' => 'Latest Listings',
+        'listings' => [
+            [
+                'id' => 'Listing One',
+                'title' => 'Senior Stupidity Developer',
+                "name" => "Abdullah Javed",
+                "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Deleniti eius dolor temporibus recusandae pariatur necessitatibus perferendis 
+            voluptate blanditiis quis veniam hic a mollitia vel, sed rerum architecto 
+            dignissimos laborum consequatur?"
+            ],
+            [
+                'id' => 'Listing Two',
+                'title' => 'Senior Dumb Developer',
+                "name" => "Abdullah Javed",
+                "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Deleniti eius dolor temporibus recusandae pariatur necessitatibus perferendis 
+            voluptate blanditiis quis veniam hic a mollitia vel, sed rerum architecto 
+            dignissimos laborum consequatur?"
+            ]
+        ]
+    ]);
 });
 
 Route::get('/dashboard', function () {
@@ -28,4 +50,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

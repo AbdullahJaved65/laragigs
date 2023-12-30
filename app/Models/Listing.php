@@ -7,7 +7,7 @@ class Listing
     {
         return [
             [
-                'id' => 'Listing One',
+                'id' => 1,
                 'title' => 'Senior Stupidity Developer',
                 "name" => "Abdullah Javed",
                 "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
@@ -16,7 +16,7 @@ class Listing
             dignissimos laborum consequatur?"
             ],
             [
-                'id' => 'Listing Two',
+                'id' => 2,
                 'title' => 'Senior Dumb Developer',
                 "name" => "Abdullah Javed",
                 "description" => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
@@ -25,6 +25,17 @@ class Listing
             dignissimos laborum consequatur?"
             ]
         ];
+    }
+
+    public static function find($id)
+    {
+        $listings = self::all();
+
+        foreach ($listings as $listing) {
+            if ($listing['id'] == $id) {
+                return $listing;
+            }
+        }
     }
 }
 
